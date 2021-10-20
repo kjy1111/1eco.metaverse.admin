@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grinbi>
+    <authentication enabled="false">
+        <ignoreList>
+            <add name="/index.do"/>
+            <add name="/login.do"/>
+            <add name="/loginPage.do"/>
+        </ignoreList>
+    </authentication>
+    <resolver>
+        <tilesViewResolver enabled="true" order="1" viewName=".*" definitionPath="/WEB-INF/tiles/definition/def-*.xml" />
+        <urlBasedViewResolver enabled="true" order="2" suffix=".jsp" prefix="/WEB-INF/jsp/"/>
+        <freeMarkerViewResolver enabled="true" order="3" suffix=".flt" contentType="text/html; charset=UTF-8"/>
+    </resolver>
+    <crypto enabled="false" masterkey="grinbi">
+        <add type="grinbiSample.model.GrinbiLoginModel" property="RememberMeYN" />
+        <add type="grinbiSample.model.GrinbiUserModel" property="RememberMeYN" />
+    </crypto>
+    <monitoring enabled="false">
+        <eventMappings>
+            <add name="customWebErrorEvent" type="grinbi.monitoring.events.CustomWebErrorEvent"/>
+            <add name="loggingEvent" type="grinbi.monitoring.events.LoggingEvent"/>
+        </eventMappings>
+        <providers>
+            <add name="customSqlLogProvider" type="grinbi.monitoring.provider.CustomSqlLogProvider"/>
+        </providers>
+        <rules>
+            <add name="webCustomEvent" eventName="customWebErrorEvent" provider="customSqlLogProvider"/>
+            <add name="loggingEvent" eventName="loggingEvent" provider="customSqlLogProvider"/>
+        </rules>
+    </monitoring>
+</grinbi>

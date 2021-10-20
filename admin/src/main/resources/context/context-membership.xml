@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!--인증된 유저의 LoginVO, 권한, 인증 여부를 확인 할 수있는 서비스 클래스 -->
+	<bean id="membershipProvider" class="grinbi.membership.MembershipProvider">
+		<property name="membershipService">
+			<ref bean="userService" />
+		</property>
+	</bean>
+ 
+	<bean id="userService" class="oneEco.service.impl.AdminUserServiceImpl" />
+</beans>

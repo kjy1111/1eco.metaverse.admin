@@ -1,0 +1,89 @@
+/**
+ * jQuery Editable Select
+ * Indri Muska <indrimuska@gmail.com>
+ *
+ * Source on GitHub @ https://github.com/indrimuska/jquery-editable-select
+ */
+
+.es-input {
+    display: block;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 40px;
+    padding-right: 30px !important;
+    padding-left: 15px !important;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    /*background: #fff url(images/BITCommon/select/selectbox-bg.png) right center no-repeat;*/
+    color: #666;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: left;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    border-radius: 5px
+}
+
+.sel_bg{background: #fff url(images/BITCommon/select/selectbox-bg.png) right center no-repeat;}
+.sel_bg_on{background: #fff url(images/BITCommon/select/selectbox-bg_on.png) right center no-repeat;}
+
+    .es-input:focus {
+        -webkit-border-bottom-left-radius: 0;
+        -moz-border-radius-bottomleft: 0;
+        border-bottom-left-radius: 0;
+        -webkit-border-bottom-right-radius: 0;
+        -moz-border-radius-bottomright: 0;
+        border-bottom-right-radius: 0;
+    }
+
+.es-list {
+    display: block;
+    position: absolute;
+    z-index: 9;
+    padding: 0;
+    margin: -1px 0 0 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    display: none;
+    z-index: 1000;
+    background: #fff;
+    overflow-y: auto;
+    box-sizing: border-box;
+    border-radius:5px
+}
+
+.es-list li {
+    display: block;
+    height: 30px;
+    padding: 0px 10px;
+    margin: 0;
+    border-top: 1px solid #ccc;
+    box-sizing: border-box;
+    color: #666;
+    font-size: 14px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    line-height:30px
+}
+
+    .es-list li:first-child {
+        border-top: none
+    }
+
+    .es-list li:last-child {
+        border-bottom: none;
+    }
+
+    .es-list li.focused {
+        background: #f3f3f3;
+    }
+
+.es-list li .c_chk{width:16px;height:30px;display:inline-block;vertical-align:top;margin:0 5px 0 0;background:transparent}
+.es-list li .sel_p{display:inline-block;vertical-align:top;margin:0;padding:0;height:30px;line-height:30px}

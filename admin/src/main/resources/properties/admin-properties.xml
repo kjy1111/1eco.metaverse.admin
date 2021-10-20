@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>GRINBISOFT</comment>
+	<!-- 로컬 환경 Context root Full Path -->
+	<entry key="context.root">http://localhost:8081/</entry>
+	<entry key="global.startPage">/</entry>
+	<!-- grinbi.xml 설정 파일 경로 -->
+	<entry key="global.configPath">/config/grinbi.xml</entry>
+    <!-- grinbi.xml 설정 파일 경로 -->
+    <entry key="global.siteMapPath">/config/sitemap.xml</entry>
+    <!-- locale cookie name  -->
+    <entry key="global.localeCookieName">grinbi</entry>
+	<!-- 로그인 페이지 경로 -->
+	<entry key="global.loginPage">/account/loginPage.do</entry>
+	<entry key="global.logoutPage">/account/logoutPage.do</entry>
+	<!-- 구간암호화 설정 -->
+	<entry key="global.useServerEncrypt">false</entry>
+	<!-- 빌드 모드 DEBUG or RELEASE -->
+	<entry key="global.buildMode">DEBUG</entry>
+    <!-- FreeMarker 템플릿 설정 -->
+    <entry key="global.templatePath">/WEB-INF/templates</entry>
+
+    <!-- SSL 요청만 받는지 설정 -->
+    <entry key="global.sslOnly">false</entry>
+
+	<entry key="global.sqlmapNamespace.logger">grinbi.Logger.</entry>
+	<entry key="global.sqlmapNamespace.file">grinbi.File.</entry>
+	<entry key="global.sqlmapNamespace.monitoring">grinbi.Monitoring.</entry>
+
+	<!-- Content Security Policy allowed (도메인별 한칸 띄우고)-->
+<!--	<entry key="global.csp">default-src 'self' https://apis.google.com https://www.youtube.com script-src self 'unsafe-inline' 'unsafe-eval' style-src self 'unsafe-inline' 'unsafe-eval' img-src * data:</entry>-->
+	<entry key="global.csp">default-src 'self' script-src self 'unsafe-inline' 'unsafe-eval' style-src self 'unsafe-inline' 'unsafe-eval' img-src * data:</entry>
+
+	<!-- 로그인 세션 이름 -->
+    <entry key="session.name">Grinbi_User</entry>
+    <!-- 세션 타임아웃 (초) -->
+    <entry key="session.timeout">1200</entry>
+	<entry key="session.useSesseionListener">false</entry>
+
+	<!-- 엑셀 템플릿 경로 -->
+	<entry key="excel.file.path">/contents/</entry>
+
+	<!-- Files -->
+	<!-- 파일 업로드 경로 -->
+	<entry key="file.uploadPath">/uploadFiles</entry>
+	<!-- file.maxlength -->
+	<entry key="file.maxLength">1000000000</entry>
+	<!-- 섬네일 width, height -->
+    <entry key="file.thumbnailSize">175</entry>
+	<!-- Files -->
+
+	<!-- Exception 발생시 Action Url -->
+	<entry key="exception.url">/common/error/500.do</entry>
+    <entry key="exception.hasNotPermissionException">/common/error/403.do</entry>
+	<!-- //Exception 발생시 Action Url -->
+
+	<!-- Database -->
+	<!-- db.locatoin 은 재정의 하지 않습니다. hsql에서만 사용  -->
+	<entry key="db.location">classpath:/database/sampledb.sql</entry>
+	<entry key="db.type">hsql</entry>
+
+<!--	MYSQL 의 경우 -->
+<!--	<entry key="db.type">mysql</entry>-->
+<!--	<entry key="db.driverClassName">com.mysql.jdbc.Driver</entry>-->
+<!--	<entry key="db.url">jdbc:mysql://119.205.211.179:3306/venidaygendb?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</entry>-->
+<!--	<entry key="db.userName">venidaygendb</entry>-->
+<!--	<entry key="db.password">0401veniveni</entry>-->
+	<!-- Database -->
+
+	<!-- Mybatis -->
+	<entry key="mybatis.configLocation">classpath:config/mybatis-config.xml</entry>
+	<entry key="mybatis.mapperLocations">classpath:sqlmap/**/*.xml</entry>
+	<!-- Mybatis -->
+
+</properties>
