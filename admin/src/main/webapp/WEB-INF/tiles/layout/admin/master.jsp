@@ -12,8 +12,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>SAMPLE</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-dpi, user-scalable=no, target-density-dpi=device-dpi">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="description" content="원에코 관리자">
+    <meta name="naver-site-verification" content="">
 
     <%
         Locale locale = Locale.getDefault();
@@ -71,30 +75,36 @@
     <link href="<c:url value='/css/jquery.contextMenu.css'/>" rel="stylesheet"/>
     <link href="<c:url value='/css/viewer.css'/>" rel="stylesheet"/>
     <link href="<c:url value='/css/BITCommon.css'/>" rel="stylesheet"/>
-    <tiles:insertAttribute name="header"/>
+<%--    <link rel="shortcut icon" href="../favicon.ico">--%>
+    <link rel="stylesheet" href="<c:url value='/css/reset.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/font.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/common.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/media.css'/>">
 
     <script type="text/javascript">
         var langCode = '<%= locale.getLanguage() %>';
     </script>
 
 </head>
+
+
 <body>
-<div class="head_area">
-    <div class="header">
+<div class="layout">
+    <div class="head">
+        <div class="logo">
+            <img src="<c:url value='/images/1eco_circle.png'/>" alt="웹로고" />
+        </div>
+
+        <!-- 메뉴 -->
         <%= SiteMapLoader.getGlobalNavigationBar(locale.getLanguage(), new HashMap<String, String>() {{
             put("hideGNB", "N");
         }}, 2) %>
     </div>
-</div>
-<div id="wrap">
-    <div id="container">
-        <tiles:insertAttribute name="content"/>
-        <div class="clr"></div>
-    </div>
 
-    <tiles:insertAttribute name="footer"/>
+    <div class="container">
+        <tiles:insertAttribute name="content"/>
+    </div>
 </div>
-<!--// wrap-->
 
 <script type="text/javascript">
 

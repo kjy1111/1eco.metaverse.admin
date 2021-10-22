@@ -2,7 +2,6 @@
 <grinbi>
     <authentication enabled="true">
         <ignoreList>
-            <add name="/"/>
             <add name="/admin/account"/>
         </ignoreList>
     </authentication>

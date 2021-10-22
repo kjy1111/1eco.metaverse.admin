@@ -24,7 +24,11 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response) {
+        return "/index";
+    }
 
+    @RequestMapping(value = "/page.do", method = RequestMethod.GET)
+    public String page(HttpServletRequest request, HttpServletResponse response) {
         if (!Strings.isNullOrEmpty(request.getQueryString()) && !Strings.isNullOrEmpty(request.getParameter("pageid"))){
             return ".admin_" + request.getParameter("pageid").charAt(0) + "/" +request.getParameter("pageid");
         }else {

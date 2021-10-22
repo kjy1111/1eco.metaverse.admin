@@ -3,21 +3,26 @@
 <Site name="ROOT">
   <Group name="ko">
     <Menu name="공지사항 등록">
-      <Page name="전체공지" url="/?pageid=N-01">
-        <SubPage url="/?pageid=N-01-01" />
-        <SubPage url="/?pageid=N-01-01-01" />
-        <SubPage url="/?pageid=N-01-02-01" />
+      <Page name="전체공지" url="/page.do?pageid=N-01">
+        <SubPage url="/page.do?pageid=N-01-01" />
+        <SubPage url="/page.do?pageid=N-01-01-01" />
+        <SubPage url="/page.do?pageid=N-01-02-01" />
       </Page>
-      <Page name="경제활동 리워드" url="/?pageid=N-02">
-        <SubPage url="/?pageid=N-02-01" />
+      <Page name="경제활동 리워드" url="/page.do?pageid=N-02">
+        <SubPage url="/page.do?pageid=N-02-01" />
       </Page>
     </Menu>
   </Group>
 
   <Group name="en">
     <Menu name="공지사항 등록">
-      <Page name="전체공지" url="/?pageid=N-01">
-        <SubPage url="/?pageid=N-01" />
+      <Page name="전체공지" url="/page.do?pageid=N-01">
+        <SubPage url="/page.do?pageid=N-01-01" />
+        <SubPage url="/page.do?pageid=N-01-01-01" />
+        <SubPage url="/page.do?pageid=N-01-02-01" />
+      </Page>
+      <Page name="경제활동 리워드" url="/page.do?pageid=N-02">
+        <SubPage url="/page.do?pageid=N-02-01" />
       </Page>
     </Menu>
   </Group>

@@ -1,5 +1,6 @@
 package oneEco.web;
 
+import com.google.common.base.Strings;
 import grinbi.common.model.JsonObject;
 import grinbi.configurations.SessionListener;
 import grinbi.message.MessageSourceWrapper;
@@ -44,7 +45,11 @@ public class AccountController {
             oprtrModel.setUserid(loginModel.getUserid());
             session.setAttribute(this.messageSourceWrapper.getMessage("session.name"), oprtrModel);
             jo.IsSucceed = true;
-            jo.RedirectUrl = "/?pageid=N-01";
+            if (Strings.isNullOrEmpty(request.getParameter("returnUrl"))){
+                jo.RedirectUrl = "/page.do?pageid=N-01";
+            }else {
+                jo.RedirectUrl = request.getParameter("returnUrl");
+            }
 
             // 로그인 후에 반드시 한번 호출해 주어야 한다.
             this.oprtrService.getRoles();
