@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>SAMPLE</title>
@@ -47,8 +47,21 @@
     <script src="<c:url value='/scripts/jquery.winFocus.js'/>"></script>
     <script src="<c:url value='/scripts/BITCommon.js'/>"></script>
 
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/load-image.min.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-process.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-image.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-validate.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-ui.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-video.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.fileupload-audio.js'/>"></script>
+    <script src="<c:url value='/scripts/jquery_file_upload/jquery.iframe-transport.js'/>"></script>
+
     <script src="<c:url value='/scripts/jquery.nicescroll.min.js'/>"></script>
     <script src="<c:url value='/scripts/Common.js'/>"></script>
+
+    <script src="<c:url value='/scripts/tinymce/tinymce.min.js'/>"></script>
+    <script src="<c:url value='/scripts/tinymce/jquery.tinymce.min.js'/>"></script>
 
     <link href="<c:url value='/css/jquery-ui.min.css'/>" rel="stylesheet"/>
     <link href="<c:url value='/css/jquery-editable-select.css'/>" rel="stylesheet"/>
@@ -59,11 +72,16 @@
     <link href="<c:url value='/css/viewer.css'/>" rel="stylesheet"/>
     <link href="<c:url value='/css/BITCommon.css'/>" rel="stylesheet"/>
     <tiles:insertAttribute name="header"/>
+
+    <script type="text/javascript">
+        var langCode = '<%= locale.getLanguage() %>';
+    </script>
+
 </head>
 <body>
 <div class="head_area">
     <div class="header">
-        <%= SiteMapLoader.getGlobalNavigationBar(new HashMap<String, String>() {{
+        <%= SiteMapLoader.getGlobalNavigationBar(locale.getLanguage(), new HashMap<String, String>() {{
             put("hideGNB", "N");
         }}, 2) %>
     </div>
@@ -78,5 +96,26 @@
 </div>
 <!--// wrap-->
 
+<script type="text/javascript">
+
+    let master = (function () {
+        let $container = $("#wrap");
+
+        let init = function () {
+        };
+
+
+        let registerEventHandler = function () {
+        };
+
+        return {
+            init: function () {
+                init();
+                registerEventHandler();
+            }
+        };
+    })();
+    master.init();
+</script>
 </body>
 </html>

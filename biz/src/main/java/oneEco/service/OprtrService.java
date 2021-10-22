@@ -1,13 +1,16 @@
 package oneEco.service;
 
 import grinbi.membership.MembershipService;
-import oneEco.model.AdminRoleModel;
+import oneEco.model.logical.OprtrLoginModel;
+import oneEco.model.physical.OprtrModel;
+import oneEco.model.physical.RoleModel;
 
 import java.util.List;
 
-public interface AdminUserService extends MembershipService {
+public interface OprtrService extends MembershipService {
 
 
+    OprtrModel login(OprtrLoginModel model) throws Exception;
 
     /**
      * 인증된  사용자의 전체 역할정보를 가져옵니다.
@@ -20,7 +23,7 @@ public interface AdminUserService extends MembershipService {
      *     2020-05-11 BangEunLee 최초생성
      * </pre>
      */
-    List<AdminRoleModel> getRoles();
+    List<RoleModel> getRoles() throws Exception;
 
     /**
      * 전체 역할 정보를 가져옵니다.
@@ -34,7 +37,7 @@ public interface AdminUserService extends MembershipService {
      *                       2020-05-11 BangEunLee 최초생성
      *                   </pre>
      */
-    List<AdminRoleModel> getAllRoles() throws Exception;
+    List<RoleModel> getAllRoles() throws Exception;
 
 
     /**
@@ -50,6 +53,6 @@ public interface AdminUserService extends MembershipService {
      *                       2020-05-11 BangEunLee 최초생성
      *                   </pre>
      */
-    List<AdminRoleModel> getRolesWithUserId(String userId) throws Exception;
+    List<RoleModel> getRolesWithUserId(String userId) throws Exception;
 
 }

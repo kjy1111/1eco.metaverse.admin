@@ -1,12 +1,12 @@
-package oneEco.model;
+package oneEco.model.logical;
 
 import grinbi.validation.annotation.Required;
 import lombok.Data;
 
 @Data
-public class AdminLoginModel {
+public class OprtrLoginModel {
     @Required()
-    private String userId;
+    private String userid;
     @Required()
     private String password;
 }

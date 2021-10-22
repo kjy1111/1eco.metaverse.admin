@@ -57,15 +57,15 @@
 
 	<!-- Database -->
 	<!-- db.locatoin 은 재정의 하지 않습니다. hsql에서만 사용  -->
-	<entry key="db.location">classpath:/database/sampledb.sql</entry>
-	<entry key="db.type">hsql</entry>
+<!--	<entry key="db.location">classpath:/database/sampledb.sql</entry>-->
+<!--	<entry key="db.type">hsql</entry>-->
 
 <!--	MYSQL 의 경우 -->
-<!--	<entry key="db.type">mysql</entry>-->
-<!--	<entry key="db.driverClassName">com.mysql.jdbc.Driver</entry>-->
-<!--	<entry key="db.url">jdbc:mysql://119.205.211.179:3306/venidaygendb?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</entry>-->
-<!--	<entry key="db.userName">venidaygendb</entry>-->
-<!--	<entry key="db.password">0401veniveni</entry>-->
+	<entry key="db.type">mysql</entry>
+	<entry key="db.driverClassName">org.mariadb.jdbc.Driver</entry>
+	<entry key="db.url">jdbc:mariadb://ecoworld.ciejqm3qetum.us-east-1.rds.amazonaws.com:3306/EcoWorld?autoReconnect=true&amp;failOverReadOnly=false&amp;maxReconnects=10</entry>
+	<entry key="db.userName">admin</entry>
+	<entry key="db.password">Eco0825!</entry>
 	<!-- Database -->
 
 	<!-- Mybatis -->

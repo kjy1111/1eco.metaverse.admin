@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="oprtr">
+
+    <select id="Login" resultType="oneEco.model.physical.OprtrModel" parameterType="oneEco.model.logical.OprtrLoginModel">
+        SELECT OI.OprtrPid
+             , OI.RolePid
+             , OI.Userid
+             , OI.Email
+             , OI.NationNo
+             , OI.Telno
+             , OI.CreatDt
+             , RI.RoleNm
+        FROM OprtrInfo OI
+                 JOIN RoleInfo RI on RI.RolePid = OI.RolePid
+        WHERE Userid = #{userid}
+          AND Password = #{password}
+    </select>
+
+    <select id="GetUserRoles" parameterType="oneEco.model.logical.OprtrLoginModel"
+            resultType="oneEco.model.physical.RoleModel">
+        SELECT	R.*
+        FROM RoleInfo R, OprtrInfo U
+        WHERE R.RolePid = U.RolePid AND Userid = #{userid}
+    </select>
+</mapper>

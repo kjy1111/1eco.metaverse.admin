@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <grinbi>
-    <authentication enabled="false">
+    <authentication enabled="true">
         <ignoreList>
-            <add name="/index.do"/>
-            <add name="/login.do"/>
-            <add name="/loginPage.do"/>
+            <add name="/"/>
+            <add name="/admin/account"/>
         </ignoreList>
     </authentication>
     <resolver>

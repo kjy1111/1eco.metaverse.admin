@@ -1,5 +1,6 @@
 package oneEco.web;
 
+import com.google.common.base.Strings;
 import grinbi.message.MessageSourceWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -23,10 +24,12 @@ public class IndexController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String index(HttpServletRequest request, HttpServletResponse response) {
-        Locale locale = new Locale("en");
-        this.localeResolver.setLocale(request, response, locale);
 
-        return "/index";
+        if (!Strings.isNullOrEmpty(request.getQueryString()) && !Strings.isNullOrEmpty(request.getParameter("pageid"))){
+            return ".admin_" + request.getParameter("pageid").charAt(0) + "/" +request.getParameter("pageid");
+        }else {
+            return "/index";
+        }
     }
 
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)

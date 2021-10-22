@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="bbsctt">
+
+    <select id="GetBbscttListCount" resultType="int" parameterType="oneEco.model.logical.BbscttSearchModel">
+        SELECT COUNT(*)
+        FROM BbscttInfo A
+        JOIN BbscttTrnslat B on A.BbscttPid = B.BbscttPid
+        JOIN OprtrInfo OI on OI.OprtrPid = B.OprtrPid
+        WHERE LangCode = #{langCode}
+        <choose>
+            <when test='searchType == "01"'>
+                AND B.Sj LIKE CONCAT('%', #{searchText}, '%')
+            </when>
+            <when test='searchType == "02"'>
+                AND B.Cn LIKE CONCAT('%', #{searchText}, '%')
+            </when>
+            <when test='searchType == "03"'>
+                AND (B.Sj LIKE CONCAT('%', #{searchText}, '%') OR B.Cn LIKE CONCAT('%', #{searchText}, '%'))
+            </when>
+        </choose>
+    </select>
+
+    <select id="GetBbsList" resultType="oneEco.model.physical.BbscttModel"
+            parameterType="oneEco.model.logical.BbscttSearchModel">
+        SELECT
+        A.BbscttPid
+        , A.Ctgry
+        , A.ItmCode
+        , A.NoticeYn
+        , A.ActvtyYn
+        , B.Sj
+        , B.Cn
+        , B.CreatDt
+        , B.OprtrPid
+        , OI.Id
+        FROM BbscttInfo A
+        JOIN BbscttTrnslat B on A.BbscttPid = B.BbscttPid
+        JOIN OprtrInfo OI on OI.OprtrPid = B.OprtrPid
+        WHERE LangCode = #{langCode}
+        <choose>
+            <when test='searchType == "01"'>
+                AND B.Sj LIKE CONCAT('%', #{searchText}, '%')
+            </when>
+            <when test='searchType == "02"'>
+                AND B.Cn LIKE CONCAT('%', #{searchText}, '%')
+            </when>
+            <when test='searchType == "03"'>
+                AND (B.Sj LIKE CONCAT('%', #{searchText}, '%') OR B.Cn LIKE CONCAT('%', #{searchText}, '%'))
+            </when>
+        </choose>
+        ORDER BY B.CreatDt DESC
+        LIMIT ${offset}, ${limit}
+    </select>
+
+    <select id="GetBbsctt" resultType="oneEco.model.physical.BbscttModel"
+            parameterType="oneEco.model.physical.BbscttModel">
+        SELECT A.BbscttPid
+             , A.Ctgry
+             , A.ItmCode
+             , A.NoticeYn
+             , A.ActvtyYn
+             , B.Sj
+             , B.Cn
+             , B.CreatDt
+             , B.OprtrPid
+             , OI.Id
+        FROM BbscttInfo A
+                 JOIN BbscttTrnslat B on A.BbscttPid = B.BbscttPid
+                 JOIN OprtrInfo OI on OI.OprtrPid = B.OprtrPid
+        WHERE LangCode = #{langCode}
+    </select>
+
+    <insert id="Insert" parameterType="oneEco.model.physical.BbscttModel">
+        INSERT INTO BbscttInfo
+        ( Ctgry
+        , ItmCode
+        , NoticeYn
+        , ActvtyYn)
+        VALUES ( #{ctgry}
+               , #{itmCode}
+               , #{noticeYn}
+               , #{actvtyYn})
+
+        <selectKey keyProperty="bbscttPid" resultType="int" order="AFTER">
+            SELECT MAX(BbscttPid) FROM BbscttInfo
+        </selectKey>
+    </insert>
+
+    <insert id="InsertTrnslat" parameterType="oneEco.model.physical.BbscttModel">
+        INSERT INTO BbscttTrnslat
+        ( BbscttPid
+        , LangCode
+        , Sj
+        , Cn
+        , CreateDt
+        , OprtrPid)
+        VALUES ( #{bbscttPid}
+               , #{langCode}
+               , #{sj}
+               , #{cn}
+               , NOW()
+               , #{oprtrPid})
+    </insert>
+
+</mapper>

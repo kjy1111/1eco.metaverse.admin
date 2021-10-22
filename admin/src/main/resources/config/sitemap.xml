@@ -1,45 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Site name="ROOT">
-  <Menu name="Login">
-    <Page name="Login" url="/account/loginPage.do"></Page>
-  </Menu>
+  <Group name="ko">
+    <Menu name="공지사항 등록">
+      <Page name="전체공지" url="/?pageid=N-01">
+        <SubPage url="/?pageid=N-01-01" />
+        <SubPage url="/?pageid=N-01-01-01" />
+        <SubPage url="/?pageid=N-01-02-01" />
+      </Page>
+      <Page name="경제활동 리워드" url="/?pageid=N-02">
+        <SubPage url="/?pageid=N-02-01" />
+      </Page>
+    </Menu>
+  </Group>
 
-  <Menu name="Javascript &amp; jQuery" deny-userid="admin">
-    <Menu name="Javascript">
-      <Page name="Prototype" url="/javascript/index.do"></Page>
-      <Page name="KeyDownEvent" url="/keydown/index.do"></Page>
+  <Group name="en">
+    <Menu name="공지사항 등록">
+      <Page name="전체공지" url="/?pageid=N-01">
+        <SubPage url="/?pageid=N-01" />
+      </Page>
     </Menu>
-    <Menu name="jQuery">
-      <Page name="Plugin" url="/jquerypluginsample/index.do"></Page>
-    </Menu>
-  </Menu>
-
-  <Menu name="Design" userid="admin">
-    <Menu name="Design">
-      <Page name="Design sample" url="/designsample/index.do"></Page>
-      <Page name="ImageViewer" url="/imageviewer/index.do"></Page>
-      <Page name="RadioButton" url="/radiobutton/index.do"></Page>
-      <Page name="EditableSelect" url="/editableselect/index.do"></Page>
-    </Menu>
-    <Menu name="Editor">
-      <Page name="Editor" url="/tinymce/index.do"></Page>
-    </Menu>
-  </Menu>
-
-  <Menu name="Utility">
-    <Menu name="Validator">
-      <Page name="Validator" url="/validator/index.do"></Page>
-    </Menu>
-    <Menu name="Captcha" deny-role="SubAdmin">
-      <Page name="Captcha" url="/captcha/captchaSample.do"></Page>
-    </Menu>
-    <Menu name="Utility">
-      <Page name="FileUpload" url="/files/fileUploadPage.do"></Page>
-      <Page name="Excel download" url="/excel/exceldownloadSamplePage.do"></Page>
-      <Page name="Email" url="/sendemail/sendEmail.do"></Page>
-      <Page name="Error" url="/exception/error.do"></Page>
-    </Menu>
-  </Menu>
-
+  </Group>
 </Site>
