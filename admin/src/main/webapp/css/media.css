@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*  media.css */
+
+
+/* 미디어쿼리 1600px */
+@media only screen and (max-width:1600px) {
+    .ipt_long{width: 53vw;}
+
+}
+/* 1600px 끝 */
+
+
+/* 미디어쿼리 1400px */
+@media only screen and (max-width:1400px) {
+    .ipt_long{width: 68vw;}
+
+    /* 메뉴 */
+    .head{float: none; width: 1400px; height: 110px;}
+    .layout .head .logo{margin: 0; display: none;}
+    .layout .head .mlogo{display: block; transform: translate(40px, 30px);}
+    .mbtn{display: block;}
+    .ham{position: absolute; cursor: pointer; top: 42px; right: 40px;}
+    .cls{position: absolute; cursor: pointer; top: 42px; right: 47px; display: none;}
+    
+    .lnbContainer{display: none; background-color: #000; position:absolute; width:100%; height:1296px; transform: translate(0px, 58px); text-align:center;padding-top: 110px;}
+    .lnb > li{ padding-bottom:40px; width: 300px;}
+    .lnb > li > a{ font-size: 35px;}
+    .lnbContainer .lnb .folder {padding-bottom:30px; width: 300px;}
+    .lnbContainer .lnb .folder > a {font-size: 35px;}
+    .lnbSubArea > li{ padding-bottom:40px; width: 300px; margin: 0 auto;}
+    .lnbSubArea > li> a{ font-size: 35px;}
+    .lnb > li:last-child > a {font-size:35px;}
+    .page{margin: 0 auto;}
+    .lnbContainer .lnb .folder {margin: 0 auto;}
+
+    .container{position: static;}
+
+    .tbl_1 th{font-size: 20px;}
+    .tbl_2 th{font-size: 20px;}
+
+    .GroupType{width: 60vw; transform: translate(35%, 20%);}
+    .GroupType .close::before, 
+    .GroupType .close::after{position: absolute; top:12px; right: 30px; content: ''; width: 3px; height: 35px; background-color: #fff;}
+}
+/* 1400px 끝 */
+
+
+/* 미디어쿼리 1280px */
+@media only screen and (max-width:1280px) {
+
+    .login .tit {
+        font-size: 2vw;
+    }
+    .cnt_tit h2{font-size: 24px;}
+
+    select{width: 13vw; font-size: 18px;}
+
+    .ipt_long{width:64vw; font-size: 20px;}
+    .ipt_popup{width:28vw}
+    .btn_basic{width:8vw;font-size: 18px;}
+    .btn_area a{width:8vw; font-size: 18px;}
+    .btn_area_right a {width: 14vw; font-size: 18px;}
+    
+    #pager a, #pager span{font-size: 22px; font-weight: 500;}
+
+    .tbl_1 > tbody > tr > td {font-size:22px;}
+    .tbl_2 td{font-size: 22px;}
+}
+/* 1280px 끝 */
+
+
+/*  미디어쿼리 950px */
+@media only screen and (max-width:950px) {
+    .login .logo img {
+        width: 400px;
+    }
+    .login .tit {
+        font-size: 3vw;
+    }
+    
+    /* .tbl_1 th{font-size: 18px;} */
+
+    select{width: 12vw; }
+
+    .ipt_long{width: 63vw;}
+    .ipt_popup{width:29vw}
+    .btn_area a{width: 8vw;}
+    .btn_basic{width: 8vw;}
+    .btn_delete{width: 8vw;}
+    .btn_left{width: 8vw;}
+    .btn_basic_retouch{width: 8vw;}
+    .btn_delete_retouch{width: 8vw;}
+    .btn_left_retouch{width: 8vw;}
+   
+}
+/*  미디어쿼리 950px 끝 */
+
+
+/*  미디어쿼리 700px */
+@media only screen and (max-width:700px) {
+    select{width: 17vw;}
+
+    .ipt_long{width: 58vw;}
+    .ipt_popup{width:29vw}
+    .btn_basic{width: 11vw;}
+    .btn_area a{width: 11vw;}
+}
+/*  미디어쿼리 700px 끝 */
+
+
+/*  미디어쿼리 600px */
+@media only screen and (max-width:600px) {
+    .login .tit {
+        font-size: 4vw;
+    }
+
+}
+/*  미디어쿼리 600px 끝 */
