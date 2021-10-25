@@ -1,3 +1,6 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <div class="contents" id="N-01">
     <div class="gnb01">
         <select name="SearchType">
@@ -6,7 +9,7 @@
         </select>
         <table class="tbl_2">
             <div class="cnt_tit">
-                <h2 class="nav_1_1">전체 공지</h2>
+                <h2 class="nav_1_1">전체공지</h2>
             </div>
             <caption>전체공지</caption>
             <colgroup>
@@ -82,7 +85,7 @@
                 <option value="">내용</option>
                 <option value="">제목+내용</option>
             </select>
-            <input type="text" class="ipt_basic" name="" id="" placeholder="이벤트">
+            <input type="text" class="ipt_basic" name=""  placeholder="이벤트">
             <button>검색</button>
         </div>
     </div>
@@ -109,4 +112,3 @@
     })();
     n_01.init();
 </script>
-
