@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <div class="contents" id="N-01">
@@ -29,33 +29,33 @@
             </tr>
             </thead>
             <tbody name="tbodyBbsList">
-            <tr>
-                <td>1</td>
-                <td>이벤트</td>
-                <td>
-                    <a href="javascript:;">1ECO Meta World 오픈 이벤트</a>
-                </td>
-                <td>2021-11-20</td>
-                <td>admin</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>공지</td>
-                <td>
-                    <a href="javascript:;">더블 적립 이벤트 시작</a>
-                </td>
-                <td>2021-11-21</td>
-                <td>admin</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>채용</td>
-                <td>
-                    <a href="javascript:;">Local Market 에디터 모집</a>
-                </td>
-                <td>2021-11-21</td>
-                <td>admin</td>
-            </tr>
+<%--            <tr>--%>
+<%--                <td>1</td>--%>
+<%--                <td>이벤트</td>--%>
+<%--                <td>--%>
+<%--                    <a href="javascript:;">1ECO Meta World 오픈 이벤트</a>--%>
+<%--                </td>--%>
+<%--                <td>2021-11-20</td>--%>
+<%--                <td>admin</td>--%>
+<%--            </tr>--%>
+<%--            <tr>--%>
+<%--                <td>2</td>--%>
+<%--                <td>공지</td>--%>
+<%--                <td>--%>
+<%--                    <a href="javascript:;">더블 적립 이벤트 시작</a>--%>
+<%--                </td>--%>
+<%--                <td>2021-11-21</td>--%>
+<%--                <td>admin</td>--%>
+<%--            </tr>--%>
+<%--            <tr>--%>
+<%--                <td>1</td>--%>
+<%--                <td>채용</td>--%>
+<%--                <td>--%>
+<%--                    <a href="javascript:;">Local Market 에디터 모집</a>--%>
+<%--                </td>--%>
+<%--                <td>2021-11-21</td>--%>
+<%--                <td>admin</td>--%>
+<%--            </tr>--%>
 
             </tbody>
             <tfoot>
@@ -96,7 +96,7 @@
     <tr data-data="{%=JSON.stringify(data)%}">
         <td>{%= data.rowNum %}</td>
         <td>{%= data.ctgry %}</td>
-        <td><a href='<c:url value="/page.do?pageid=N01-01&bbsPid="/>{%= data.bbsPid %}'>{%= BIT.htmlDecode(data.sj) %}</a></td>
+        <td><a href='<c:url value="/page.do?pageid=N01-01&bbscttPid="/>{%= data.bbscttPid %}'>{%= BIT.htmlDecode(data.sj) %}</a></td>
         <td>{%= BIT.convertToDate(data.creatDt).toString('yyyy-MM-dd') %}</td>
         <td>{%= data.id %}</td>
     </tr>
@@ -117,7 +117,7 @@
                 // clturTypeCode: 'KO'
             });
 
-            return BIT.callAjax('<c:url value="/admin/bbs/getBbsList.do" />', 'post', searchData, function (response) {
+            return BIT.callAjax('<c:url value="/admin/bbsctt/getBbscttList.do" />', 'post', searchData, function (response) {
                 if (response.IsSucceed) {
                     if (response.totalrecords > 0) {
                         $container.find('[name=tbodyBbsList]').empty().append(tmpl('tmplBbsList', response.rows));
@@ -176,6 +176,13 @@
                 e.preventDefault();
 
                 location.href = $(this).attr('href') + '&' + $(searchData).convertQueryString();
+            });
+
+            // 등록 이벤트
+            $container.find('[name=btnAdd]').click(function (e) {
+                e.preventDefault();
+
+                location.href = '<c:url value="/page.do?pageid=N-01-02"/>';
             });
         };
 

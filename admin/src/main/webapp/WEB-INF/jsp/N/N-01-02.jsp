@@ -56,8 +56,7 @@
 </div>
 
 <script type="text/javascript">
-
-    let n_01 = (function () {
+    let n_01_02 = (function () {
         let $container = $("#N-01-02");
 
         let init = function () {
@@ -67,14 +66,13 @@
 
             BIT.validate($container.find('form'), 'formdata', function (response) {
                 if (response.IsSucceed) {
-                    location.href = '<c:url value="/?pageid=N-01"/>';
+                    location.href = '<c:url value="/page.do?pageid=N-01"/>';
                 }
             });
         };
 
-
         let registerEventHandler = function () {
-            $container.find('[name=btn_submit]').click(function (e) {
+            $container.find('[name=btnSubmit]').click(function (e) {
                 e.preventDefault();
 
                 tinymce.triggerSave();
@@ -94,6 +92,7 @@
             }
         };
     })();
-    n_01.init();
+
+    n_01_02.init();
 </script>
 
