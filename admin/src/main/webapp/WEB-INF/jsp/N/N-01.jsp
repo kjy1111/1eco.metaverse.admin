@@ -65,15 +65,15 @@
                         <a class="btn_register" name="btnRegist" href="">등록</a>
                     </div>
                     <div id="pager">
-                        <a class="btn_paging_prev" href="javascript:;" data-page="1">&lt;&lt;</a>
-                        <a class="btn_paging_first" href="javascript:;" data-page="1">&lt;</a>
-                        <a title="" class="paging_active active" href="javascript:;" data-page="1">1</a>
-                        <a title="" class="paging_active active" href="javascript:;" data-page="1">2</a>
-                        <a title="" class="paging_active active" href="javascript:;" data-page="1">3</a>
-                        <a title="" class="paging_active active" href="javascript:;" data-page="1">4</a>
-                        <a title="" class="paging_active active" href="javascript:;" data-page="1">5</a>
-                        <a class="btn_paging_next" href="javascript:;" data-page="1">&gt;</a>
-                        <a class="btn_paging_last" href="javascript:;" data-page="1">&gt;&gt;</a>
+<%--                        <a class="btn_paging_prev" href="javascript:;" data-page="1">&lt;&lt;</a>--%>
+<%--                        <a class="btn_paging_first" href="javascript:;" data-page="1">&lt;</a>--%>
+<%--                        <a title="" class="paging_active active" href="javascript:;" data-page="1">1</a>--%>
+<%--                        <a title="" class="paging_active active" href="javascript:;" data-page="1">2</a>--%>
+<%--                        <a title="" class="paging_active active" href="javascript:;" data-page="1">3</a>--%>
+<%--                        <a title="" class="paging_active active" href="javascript:;" data-page="1">4</a>--%>
+<%--                        <a title="" class="paging_active active" href="javascript:;" data-page="1">5</a>--%>
+<%--                        <a class="btn_paging_next" href="javascript:;" data-page="1">&gt;</a>--%>
+<%--                        <a class="btn_paging_last" href="javascript:;" data-page="1">&gt;&gt;</a>--%>
                     </div>
                 </td>
             </tr>
