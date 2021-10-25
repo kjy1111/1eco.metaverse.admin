@@ -28,7 +28,7 @@
                 <th scope="col">등록자</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody name="tbodyBbsList">
             <tr>
                 <td>1</td>
                 <td>이벤트</td>
@@ -80,35 +80,115 @@
             </tfoot>
         </table>
         <div class="foot">
-            <select name="" id="" class="footselect">
-                <option value="">제목</option>
-                <option value="">내용</option>
-                <option value="">제목+내용</option>
+            <select name="searchType" id="" class="footselect">
+                <option value="01">제목</option>
+                <option value="02">내용</option>
+                <option value="03">제목+내용</option>
             </select>
-            <input type="text" class="ipt_basic" name=""  placeholder="이벤트">
+            <input type="text" class="ipt_basic" name="btnAdd"  placeholder="이벤트">
             <button>검색</button>
         </div>
     </div>
 </div>
 
+<script type="text/x-tmpl" id="tmplBbsList">
+    {% for (let i=0, data; data=o[i]; i++) { %}
+    <tr data-data="{%=JSON.stringify(data)%}">
+        <td>{%= data.rowNum %}</td>
+        <td>{%= data.ctgry %}</td>
+        <td><a href='<c:url value="/page.do?pageid=N01-01&bbsPid="/>{%= data.bbsPid %}'>{%= BIT.htmlDecode(data.sj) %}</a></td>
+        <td>{%= BIT.convertToDate(data.creatDt).toString('yyyy-MM-dd') %}</td>
+        <td>{%= data.id %}</td>
+    </tr>
+    {% } %}
+</script>
+
 <script type="text/javascript">
 
     let n_01 = (function () {
-        let $container = $("#N-01");
+        let $container = $('#N-01');
+        let currentPage = parseInt(BIT.isNullOrEmpty($.getUrlVar('pageNumber')) ? 1 : $.getUrlVar('pageNumber'));
+        let searchData = {};
 
-        let init = function () {
+        let search = function () {
+            searchData = $.extend({}, $container.getObject(), {
+                pageSize: 10,
+                pageNumber: currentPage
+                // clturTypeCode: 'KO'
+            });
+
+            return BIT.callAjax('<c:url value="/admin/bbs/getBbsList.do" />', 'post', searchData, function (response) {
+                if (response.IsSucceed) {
+                    if (response.totalrecords > 0) {
+                        $container.find('[name=tbodyBbsList]').empty().append(tmpl('tmplBbsList', response.rows));
+
+                        let options = {
+                            page: response.pagenum,
+                            perpage: searchData.pageSize,
+                            onSelect: function (page) {
+                                currentPage = isNaN(page) ? 1 : page;
+                                if (currentPage != response.pagenum) {
+                                    COM.showLoading();
+                                    search().done(function () {
+                                        COM.hideLoading();
+                                    });
+                                }
+                            },
+                        };
+
+                        COM.pager($container.find('#pager'), response.totalrecords, options);
+                        $container.find('#pager').closest('tr').show();
+                    } else {
+                        $container.find('[name=tbodyBbsList]').empty().append("<tr><td colspan='5' style='height: 50px;alignment: center;vertical-align: center'>검색결과가 없습니다.</td></tr>");
+                        $container.find('#pager').closest('tr').hide();
+                    }
+                }
+            });
         };
 
+        let init = function () {
+            searchData = location.href.queryStringToJSON();
+            BIT.bindObjectData(searchData, {$parent: $container});
+        };
+
+        let lazyInit = function () {
+            search();
+        };
 
         let registerEventHandler = function () {
+            // 검색 이벤트
+            $container.find('[name=btnSearch]').click(function (e) {
+                e.preventDefault();
+
+                currentPage = 1;
+                search();
+            });
+
+            // 엔터 이벤트
+            $container.find('[name=searchText]').keydown(function (e) {
+                if (e.keyCode === 13) {
+                    $container.find('[name=btnSearch]').trigger('click');
+                }
+            });
+
+            // 목록 클릭 이벤트
+            $container.find('[name=tbodyBbsList]').on('click', 'tr a', function (e) {
+                e.preventDefault();
+
+                location.href = $(this).attr('href') + '&' + $(searchData).convertQueryString();
+            });
         };
 
         return {
             init: function () {
                 init();
                 registerEventHandler();
+                $(function () {
+                    lazyInit();
+                });
             }
         };
     })();
+
     n_01.init();
 </script>
